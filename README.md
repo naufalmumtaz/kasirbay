@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="./public/images/logo.png" width="200" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="./frontend/src/images/logo.png" width="200" alt="Laravel Logo"></a></p>
 
 ## Tentang Kasirbay
 
