@@ -1,6 +1,6 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="./frontend/src/images/logo.png" width="200" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="./public/images/logo.png" width="200" alt="Laravel Logo"></a></p>
 
-## Tentang Kasirbay
+## About Kasirbay
 
 Kasirbay is a Indonesian POS (Point of Sales) website. Based on Laravel & Bootstrap 5 framework and also Javascript plugin. Easy to customize, use and fully responsive.
 
@@ -10,10 +10,8 @@ Kasirbay is a Indonesian POS (Point of Sales) website. Based on Laravel & Bootst
 - Produk
 - Transaksi
 - Pelanggan
-- Anlisis
 - Pelaporan
 - Karyawan
-- Harga
 - Cabang
 - User
 

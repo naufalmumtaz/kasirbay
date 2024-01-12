@@ -1,0 +1,66 @@
+:root {
+    --offcanvas-width: 270px;
+    --topNavbarHeight: 75px;
+}
+body {
+    background-color: #E8EFFA;
+}
+
+.sidebar-nav {
+    width: var(--offcanvas-width) !important;
+}
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+.sidebar-link {
+    display: flex;
+    align-items: center;
+}
+.sidebar-link .right-icon {
+    display: inline-flex;
+    transition: all ease 0.25s;
+}
+.sidebar-link[aria-expanded="true"] .right-icon {
+    transform: rotate(180deg);
+}
+.sidebar-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.sidebar-profile .sidebar-profile-name .sidebar-name {
+    margin-top: 10px;
+    font-size: 20px;
+}
+.sidebar-profile .sidebar-profile-name .sidebar-email {
+    margin-top: -15px;
+    font-size: 14px;
+}
+
+@media (min-width:992px) {
+    body {
+        overflow: auto !important;
+    }
+    .offcanvas-backdrop::before {
+        display: none;
+    }
+    main {
+        margin-left: calc(var(--offcanvas-width) + 20px);
+        margin-right: 20px;
+    }
+    .sidebar-nav {
+        transform: none !important;
+        visibility: visible !important;
+        top: var(--topNavbarHeight) !important;
+        height: calc(100% - var(--topNavbarHeight));
+    }
+}
