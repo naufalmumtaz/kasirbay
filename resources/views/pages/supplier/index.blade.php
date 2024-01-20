@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Kategori Produk
+    Supplier
 @endsection
 
 @section('titleProp')
@@ -23,11 +23,14 @@
         var table = $('#myTable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('admin.product_category.index') }}",
+            ajax: "{{ route('admin.supplier.index') }}",
             columns: [
                 {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                {data: 'title', name: 'title'},
+                {data: 'name', name: 'name'},
+                {data: 'phone', name: 'phone'},
+                {data: 'address', name: 'address'},
                 {data: 'description', name: 'description'},
+                {data: 'products', name: 'products'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
 
@@ -86,8 +89,11 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Judul</th>
+                            <th>Nama</th>
+                            <th>No HP</th>
+                            <th>Alamat</th>
                             <th>Deskripsi</th>
+                            <th>Produk</th>
                             <th>Menu</th>
                         </tr>
                     </thead>
@@ -104,19 +110,35 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title" id="exampleModalLabel">Tambah Kategori</h3>
+                    <h3 class="modal-title" id="exampleModalLabel">Tambah Supplier</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="title">Judul <span class="text-danger">*</span></label>
-                        <input type="text" name="title" id="title" class="form-control">
+                        <label for="name">Nama <span class="text-danger">*</span></label>
+                        <input type="text" name="name" id="name" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone">No HP <span class="text-danger">*</span></label>
+                        <input type="text" name="phone" id="phone" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="address">Alamat <span class="text-danger">*</span></label>
+                        <textarea name="address" id="address" cols="30" rows="5" class="form-control"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="description">Deskripsi <span class="text-danger">*</span></label>
-                        <input type="text" name="description" id="description" class="form-control">
+                        <textarea name="description" id="description" cols="30" rows="5" class="form-control"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="products">Produk</label>
+                        <datalist id="keywordsList">
+                            <option value="Kata Kunci 1">
+                            <option value="Kata Kunci 2">
+                            <option value="Kata Kunci 3">
+                        </datalist>
                     </div>
                 </div>
                 <div class="modal-footer">

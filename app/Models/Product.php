@@ -3,46 +3,25 @@
 namespace App\Models;
 
 use Illuminate\Support\Str;
+use App\Models\ProductImage;
+use App\Models\ProductCategory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, HasUuids;
+    protected $table = 'products';
     protected $fillable = [
         'title', 'description', 'price', 'slug', 'product_category_id'
     ];
 
-    /**
-     * The "booting" function of model
-     *
-     * @return void
-     */
-    protected static function boot() {
-        static::creating(function ($model) {
-            if (!$model->getKey()) {
-                $model->{$model->getKeyName()} = (string) Str::uuid();
-            }
-        });
+    public function product_image() {
+        return $this->hasMany(ProductImage::class);
     }
 
-    /**
-     * Get the value indicating whether the IDs are incrementing.
-     *
-     * @return bool
-     */
-    public function getIncrementing()
-    {
-        return false;
-    }
-
-    /**
-     * Get the auto-incrementing key type.
-     *
-     * @return string
-     */
-    public function getKeyType()
-    {
-        return 'string';
+    public function product_category() {
+        return $this->belongsTo(ProductCategory::class, 'product_category_id', 'id');
     }
 }

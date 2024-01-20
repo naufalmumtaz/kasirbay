@@ -12,7 +12,7 @@ class ProductCategoryController extends Controller
 {
     public function Aindex()
     {
-        if(\request()->ajax()){
+        if(request()->ajax()){
             $data = ProductCategory::latest()->get();
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -39,8 +39,8 @@ class ProductCategoryController extends Controller
 
     public function Astore(Request $request) {
         $validator = Validator::make($request->all(), [
-            'title' => 'required|unique:product_categories|max:255',
-            'description' => 'required',
+            'title' => 'required|unique:product_categories|min:4|max:255',
+            'description' => 'required|min:4|max:1000',
         ]);
 
         if ($validator->fails()) {
@@ -65,8 +65,8 @@ class ProductCategoryController extends Controller
     public function Aupdate(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required|max:255',
-            'description' => 'required',
+            'title' => 'required|min:4|max:255',
+            'description' => 'required|min:4|max:1000',
         ]);
 
         if ($validator->fails()) {

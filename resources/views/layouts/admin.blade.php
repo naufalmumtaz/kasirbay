@@ -13,12 +13,13 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="{{ asset('admin_dashboard/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css') }}">
 
     @stack('style')
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-light navbar-light">
+    <nav class="navbar sticky-top navbar-expand-lg bg-light navbar-light">
       <div class="container-fluid">
         <!-- Offcanvas trigger -->
         <button
@@ -127,12 +128,12 @@
               <div class="collapse {{ Request::is('admin/produk*') || Request::is('admin/kategori-produk*') ? "show" : "" }}" id="collapseExample">
                 <ul class="navbar-nav ps-3">
                   <li>
-                    <a href="#" class="nav-link px-3 py-2 {{ Request::is('admin/produk*') ? "active" : "" }}">
+                    <a href="{{ route('admin.product.index') }}" class="nav-link px-3 py-2 {{ Request::is('admin/produk*') ? "active" : "" }}">
                       Produk
                     </a>
                   </li>
                   <li>
-                    <a href="#" class="nav-link px-3 py-2 {{ Request::is('admin/kategori-produk*') ? "active" : "" }}">
+                    <a href="{{ route('admin.product_category.index') }}" class="nav-link px-3 py-2 {{ Request::is('admin/kategori-produk*') ? "active" : "" }}">
                       Kategori Produk
                     </a>
                   </li>
@@ -207,7 +208,11 @@
       </div>
     </main>
 
-    <script src="{{ asset('admin_dashboard/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('admin_dashboard/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.7.0.js') }}"></script>
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('js/sweetalert2@11.js') }}"></script>
     @stack('script')
     @include('sweetalert::alert')
   </body>
