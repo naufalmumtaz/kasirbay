@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('phone');
             $table->string('address', 1000);
             $table->string('description', 1000);
-            $table->string('products')->nullable();
             $table->timestamps();
         });
     }

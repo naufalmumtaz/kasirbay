@@ -113,7 +113,7 @@
               </a>
             </li>
             <li>
-                <a class="nav-link px-3 {{ Request::is('admin/supplier') ? "active" : "" }}" href="supplier.html">
+                <a class="nav-link px-3 {{ Request::is('admin/supplier') ? "active" : "" }}" href="{{ route('admin.supplier.index') }}">
                     <i class="me-2 fa fa-truck" aria-hidden="true"></i> <span>Supplier</span>
                 </a>
             </li>

@@ -41,9 +41,7 @@
                 $('#editModal input#description').val(data.description);
             });
 
-            $('#editForm').on('submit', function(e) {
-                e.preventDefault();
-            });
+            $('#editForm').attr('action', `/admin/supplier/update/${id}`);
         });
         $('#myTable').on('click', '.delete-btn', function(){
             Swal.fire({
@@ -130,7 +128,7 @@
 
 <!-- Edit Modal -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form method="post">
+    <form method="post" id="editForm">
         @csrf
         @method('PUT')
         <div class="modal-dialog">
